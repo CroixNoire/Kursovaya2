@@ -1,4 +1,7 @@
 #pragma once
+#include "student.h"
+#include <iostream>
+#include <fstream>
 class Data
 {
 protected:
@@ -28,19 +31,22 @@ class student: public Data
 	char faculty[20];
 	char department[20];
 	char group[20];
-	char id[10];
 	char gender;
+	int quanity=0;
+	int all=0;
 	int startYear;
 	int ksess;
 	Session* sess;
 public:
+	char id[10];
 	void Add();
 	void Print();
+	void PrintAll();
 	void setDisp();
 	void getDisp();
 	void WriteFile(const char namefl[]);
-	void ReadFile();
-	bool Task(ifstream &file);
-	static student Search(char ID[10], const char flname[]);
+	void ReadFile(char ID[10]);
+	void DelFile(char ID[10]);
+	void ChangeFile(char ID[10]);
+	void Individ(char P);
 };
-

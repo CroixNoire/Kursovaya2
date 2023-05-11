@@ -1,5 +1,6 @@
 #include "menu.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 void menu::startMenu()
@@ -57,6 +58,22 @@ void menu::startMenu()
 				system("cls");
 				Second();
 				break;
+			case 3:
+				system("cls");
+				Third();
+				break;
+			case 4:
+				system("cls");
+				Fourth();
+				break;
+			case 5:
+				system("cls");
+				Fifth();
+				break;
+			case 6:
+				system("cls");
+				Sixth();
+				break;
 			case 7:
 				system("cls");
 				cout << "Сеанс завершён успешно";
@@ -84,8 +101,60 @@ void menu::Second()
 	cout << "Введите номер студенческого билета студента: ";
 	cin >> Id;
 	student temp;
-	temp = student::Search(Id, "Student.bin");
-	temp.Print();
+	temp.ReadFile(Id);
+	system("pause");
+	system("cls");
+}
+
+void menu::Third()
+{
+	student temp;
+	temp.PrintAll();
+	system("pause");
+	system("cls");
+}
+
+void menu::Fourth()
+{
+	char Id[10];
+	cout << "Введите номер студенческого билета студента: ";
+	cin >> Id;
+	student temp;
+	temp.ChangeFile(Id);
+	system("cls");
+}
+
+void menu::Fifth()
+{
+	char Id[10];
+	cout << "Введите номер студенческого билета студента: ";
+	cin >> Id;
+	student temp;
+	temp.DelFile(Id);
+	system("pause");
+	system("cls");
+}
+
+void menu::Sixth()
+{
+	bool flag = true;
+	char gen;
+
+	while (flag)
+	{
+		cout << "Введите гендер (М, Ж): ";
+		cin >> gen;
+
+		if (!cin.fail())
+		{
+			if (gen != 'М' && gen != 'Ж')
+				cout << "Неверный гендер. Введите ещё раз" << endl;
+			else flag = false;
+		}
+	}
+
+	student temp;
+	temp.Individ(gen);
 	system("pause");
 	system("cls");
 }

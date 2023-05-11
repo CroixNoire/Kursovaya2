@@ -12,9 +12,6 @@ int main()
 {
 	system("chcp 1251");
 	system("cls");
-	student stud;
-	/*stud.Add();
-	stud.Print();*/
 	menu men;
 	men.startMenu();
 	return 0;
